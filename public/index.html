@@ -10,41 +10,49 @@
     <title>Barcelona Sights</title>
     
 </head>
-<body ng-app="sightShowing" ng-controller="SightsController" class="flex flex-col justify-center items-center bg-neutral-200">
+<body ng-app="sightShowing" ng-controller="SightsController" class="flex flex-col justify-center items-center bg-neutral-200 dark:bg-slate-800">
     
     
-    <nav class="bg-cyan-700 text-white p-5 flex justify-between max-w-7xl max-h-60 w-full h-full items-center rounded-b-xl">
-        <ul class="flex gap-5">
-            <li>
-                <a href="#"><h1 class="font-bold">Home</h1></a>
-            </li>
-            <li>
-                <a href="#">What to see</a>
-            </li>
-            <li>
-                <a href="#">Gallery</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-        <input type="text" name="query" id="query" class="w-60 rounded" placeholder="Search..." ng-model="Search.title">
+    <nav class="bg-cyan-700 dark:bg-cyan-950 text-white p-5  max-w-7xl  w-full rounded-b-xl">
+        <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden md:flex justify-between items-center" id="navbar-default">
+            <ul class="md:flex md:flex-row md:gap-5 md:bg-cyan-600 md:dark:bg-cyan-800 md:rounded md:px-5 md:py-3 flex flex-col gap-5 my-5">
+                <li>
+                    <a href="#"><h1 class="font-bold">Home</h1></a>
+                </li>
+                <li>
+                    <a href="#">What to see</a>
+                </li>
+                <li>
+                    <a href="#">Gallery</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+            <input type="text" name="query" id="query" class="shadow appearance-none border rounded w-60 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search..." ng-model="Search.title">
+        </div>
     </nav>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white dark:bg-gray-700 overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 text-gray-900" >
                 <div class="container">
                     <div class="flex flex-col gap-5 sm:flex-row sm:justify-between sm:items-center mb-5">
                         <div class="flex flex-col sm:flex-row sm:flex-wrap justify-evenly item-start gap-5 mt-10">
                             <div
-                                    class="flex flex-col justify-between max-w-sm bg-white border border-gray-400 rounded-lg shadow-md p-5" ng-repeat="r in results | filter:Search:strict">
+                                    class="flex flex-col justify-between max-w-sm bg-white border border-gray-400 dark:border-gray-900 dark:bg-gray-600  rounded-lg shadow-md p-5 dark:shadow-gray-900" ng-repeat="r in results | filter:Search:strict">
                                     <img class="w-[512px] rounded"  
                                         src="img/{{ r.img }}.jpg" alt="" />
                                     <div class="p-5">
                                         <h5
-                                            class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                             {{ r.title }}</h5>
-                                        <p class="mb-3 font-normal text-gray-700">
+                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-300">
                                             {{ r.description }}</p>                          
                                     </div>
                                 </div>
@@ -54,5 +62,6 @@
             </div>
         </div>
     </div>
+    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script> 
     <script src="js/main.js"></script>
 </html>
